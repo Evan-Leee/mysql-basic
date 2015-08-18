@@ -13,7 +13,7 @@ stu_no CHAR(10),
 stu_name VARCHAR(20),
 gender VARCHAR(6),
 cls_id INT,
-FOREIGN KEY (cls_id) REFERENCES class(cls_id)
+FOREIGN KEY (cls_id) REFERENCES class(cls_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS course(
@@ -27,8 +27,8 @@ credit INT
 CREATE TABLE IF NOT EXISTS sele_course(
 stu_id INT,
 c_no INT,
-FOREIGN KEY (stu_id) REFERENCES student(stu_id),
-FOREIGN KEY (c_no) REFERENCES course(c_no),
+FOREIGN KEY (stu_id) REFERENCES student(stu_id) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (c_no) REFERENCES course(c_no) ON DELETE CASCADE ON UPDATE CASCADE,
 PRIMARY KEY (stu_id,c_no)
 );
 
